@@ -1,8 +1,12 @@
-artefacthub.io
+artifacthub.io
 helm install mysql bitnami/mysql
 helm list
 helm uninstall mysql
 helm repo list
+
+
+helm repo add prom-repo https://prometheus-community.github.io/helm-charts
+helm repo update
+helm install monitoring prom-repo/kube-prometheus-stack
 helm show values prom-repo/kube-prometheus-stack
-ddasdas
-helm upgrade monitoring prom-repo/kube-prometheus-stack --set grafana.adminPassword=admin
+helm upgrade monitoring prom-repo/kube-prometheus-stack --set grafana.adminPassword=admin --set grafana.service.type=NodePort
