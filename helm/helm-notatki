@@ -4,5 +4,5 @@ helm list
 helm uninstall mysql
 helm repo list
 helm show values prom-repo/kube-prometheus-stack
-d
+ddasdas
 helm upgrade monitoring prom-repo/kube-prometheus-stack --set grafana.adminPassword=admin
