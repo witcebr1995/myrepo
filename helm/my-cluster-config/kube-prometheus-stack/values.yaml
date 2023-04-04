@@ -768,7 +768,7 @@ grafana:
   ##
   defaultDashboardsTimezone: utc
 
-  adminPassword: admin
+  adminPassword: prom-operator
 
   rbac:
     ## If true, Grafana PSPs will be created
@@ -890,9 +890,7 @@ grafana:
   ## Passed to grafana subchart and used by servicemonitor below
   ##
   service:
-    portName: service
-    type: NodePort
-    nodePort: 30008
+    portName: http-web
 
   serviceMonitor:
     # If true, a ServiceMonitor CRD is created for a prometheus operator
@@ -3785,4 +3783,3 @@ thanosRuler:
 ## Setting to true produces cleaner resource names, but requires a data migration because the name of the persistent volume changes. Therefore this should only be set once on initial installation.
 ##
 cleanPrometheusOperatorObjectNames: false
-
