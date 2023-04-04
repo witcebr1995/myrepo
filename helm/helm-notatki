@@ -11,3 +11,15 @@ helm install monitoring prom-repo/kube-prometheus-stack
 helm show values prom-repo/kube-prometheus-stack
 helm upgrade monitoring prom-repo/kube-prometheus-stack --set grafana.adminPassword=admin --set grafana.service.type=NodePort
 helm upgrade monitoring prom-repo/kube-prometheus-stack --values=values.yaml
+
+
+#to avoid snowflake server
+helm pull prom-repo/kube-prometheus-stack --untar==true ##download a repo locally , not remote
+helm install monitoring ./kube-prometheus-stack
+
+#if we want use a diffrents parameters in values that in the original file we can make a new file (for example a myvalues.yaml) and we can put in it only a parametrs that we want replace and then
+helm upgrade monitoring --values=myvalues.yaml . #we need to be in this same folder where the file is it
+
+
+#we can obtain a whole config file by the template command
+helm template monitoring ./kube-prometheus-stack --values=./kube-prometheus-stack/myvalues.yaml > monitoring-stack.yaml
