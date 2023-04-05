@@ -23,3 +23,6 @@ helm upgrade monitoring --values=myvalues.yaml . #we need to be in this same fol
 
 #we can obtain a whole config file by the template command
 helm template monitoring ./kube-prometheus-stack --values=./kube-prometheus-stack/myvalues.yaml > monitoring-stack.yaml
+
+
+#creating own charts
