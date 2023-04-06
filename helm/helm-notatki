@@ -25,5 +25,5 @@ helm upgrade monitoring --values=myvalues.yaml . #we need to be in this same fol
 helm template monitoring ./kube-prometheus-stack --values=./kube-prometheus-stack/myvalues.yaml > monitoring-stack.yaml
 
 
-#creating own charts
- 
+#creating own empty charts (structure)
+ helm create fleetman-helm-chart
